@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subly</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">↻</div>
+        <span class="brand-name">Subly</span>
+      </div>
+      <div class="header-actions">
+        <button id="themeBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+        <button id="settingsBtn" class="icon-btn" title="Settings" aria-label="Settings">⚙</button>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="summary">
+      <div class="summary-main">
+        <span class="summary-label">Monthly spend</span>
+        <span class="summary-amount" id="monthlyTotal">—</span>
+        <span class="summary-sub" id="yearlyTotal"></span>
+        <span class="summary-saved hidden" id="savingsLine"></span>
+      </div>
+      <div class="summary-stats">
+        <div class="stat"><span class="stat-num" id="activeCount">0</span><span class="stat-lbl">Active</span></div>
+        <div class="stat"><span class="stat-num" id="trialCount">0</span><span class="stat-lbl">Trials</span></div>
+        <div class="stat"><span class="stat-num" id="soonCount">0</span><span class="stat-lbl">Due ≤7d</span></div>
+      </div>
+    </section>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <input type="search" id="searchInput" class="search" placeholder="Search subscriptions…" />
+      <button id="addBtn" class="primary-btn">+ Add</button>
+    </div>
+
+    <!-- List -->
+    <main id="listContainer" class="list-container"></main>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="empty-state hidden">
+      <div class="empty-icon">↻</div>
+      <h2>No subscriptions yet</h2>
+      <p>Add your first subscription to start tracking what you really pay each month.</p>
+      <button id="emptyAddBtn" class="primary-btn">+ Add subscription</button>
+    </div>
+
+    <footer class="app-footer">
+      <span id="footerNote">Private &amp; local — nothing leaves this device.</span>
+    </footer>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div id="modal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add subscription</h2>
+        <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <form id="subForm" class="modal-body">
+        <input type="hidden" id="subId" />
+
+        <label class="field">
+          <span>Name *</span>
+          <input type="text" id="fName" placeholder="Netflix, Notion, Spotify…" required maxlength="60" />
+        </label>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Price *</span>
+            <input type="number" id="fPrice" placeholder="9.99" step="0.01" min="0" required />
+          </label>
+          <label class="field">
+            <span>Currency</span>
+            <select id="fCurrency"></select>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Billing cycle</span>
+            <select id="fCycle">
+              <option value="weekly">Weekly</option>
+              <option value="monthly" selected>Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Next billing date</span>
+            <input type="date" id="fNextDate" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Status</span>
+            <select id="fStatus">
+              <option value="active" selected>Active</option>
+              <option value="trial">Free trial</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Category</span>
+            <select id="fCategory">
+              <option value="">—</option>
+              <option>Streaming</option>
+              <option>Music</option>
+              <option>Software</option>
+              <option>Productivity</option>
+              <option>Gaming</option>
+              <option>News</option>
+              <option>Cloud</option>
+              <option>AI</option>
+              <option>Fitness</option>
+              <option>Finance</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Website (optional)</span>
+          <input type="url" id="fUrl" placeholder="https://…" />
+        </label>
+
+        <label class="field">
+          <span>Notes (optional)</span>
+          <textarea id="fNotes" rows="2" maxlength="200" placeholder="Plan, account, anything to remember…"></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" id="deleteBtn" class="danger-btn hidden">Delete</button>
+          <div class="spacer"></div>
+          <button type="button" id="cancelBtn" class="ghost-btn">Cancel</button>
+          <button type="submit" class="primary-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button id="settingsClose" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field">
+          <span>Default currency (totals shown in this)</span>
+          <select id="setCurrency"></select>
+        </label>
+        <label class="field">
+          <span>Theme</span>
+          <select id="setTheme">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <label class="field checkbox-field">
+          <input type="checkbox" id="setNotify" />
+          <span>Notify me before renewals (local, on this device)</span>
+        </label>
+        <label class="field">
+          <span>Remind me this many days before</span>
+          <select id="setNotifyDays">
+            <option value="1">1 day</option>
+            <option value="2">2 days</option>
+            <option value="3" selected>3 days</option>
+            <option value="5">5 days</option>
+            <option value="7">7 days</option>
+          </select>
+        </label>
+
+        <hr class="div" />
+
+        <div class="settings-data">
+          <button id="exportBtn" class="ghost-btn">Export data (JSON)</button>
+          <button id="importBtn" class="ghost-btn">Import data</button>
+          <input type="file" id="importFile" accept="application/json" class="hidden" />
+        </div>
+        <p class="note" id="rateNote">Mixed-currency totals use built-in approximate exchange rates and are marked with “≈”.</p>
+
+        <hr class="div" />
+        <p class="note support-note">
+          Subly is free &amp; private. If it helps you,
+          <a href="https://buymeacoffee.com/jojobry" target="_blank" rel="noopener" class="support-link">☕ buy me a coffee</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="rates.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
