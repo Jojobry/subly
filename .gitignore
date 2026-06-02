@@ -4,3 +4,7 @@ node_modules/
 Thumbs.db
 *.log
 subly-backup.json
+
+# Internal working docs — kept local, not published
+PUBLISHING.md
+STORE_LISTING.md
