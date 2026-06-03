@@ -1,14 +1,14 @@
-# Subly — Subscription Tracker
+# Subscription Cost Tracker
 
 A free, private Chrome extension to track every recurring subscription you pay for — from Netflix to Notion — without accounts, servers, or bank links. **All data stays on your device.**
 
-![Subly](icons/icon128.png)
+![Subscription Cost Tracker](icons/icon128.png)
 
 ## Why
 
-Forgotten subscriptions quietly drain money every month. Subly gives you one clean dashboard of what you pay, when it's due, and how much it adds up to per month and per year — and reminds you *before* you get charged.
+Forgotten subscriptions quietly drain money every month. Subscription Cost Tracker gives you one clean dashboard of what you pay, when it's due, and how much it adds up to per month and per year — and reminds you *before* you get charged.
 
-Unlike most trackers, Subly has **no backend**. There's nothing to sign up for and nothing to trust: your financial data is stored locally with `chrome.storage.local` and never transmitted anywhere.
+Unlike most trackers, Subscription Cost Tracker has **no backend**. There's nothing to sign up for and nothing to trust: your financial data is stored locally with `chrome.storage.local` and never transmitted anywhere.
 
 ## Features
 
@@ -27,15 +27,15 @@ Unlike most trackers, Subly has **no backend**. There's nothing to sign up for a
 2. Open `chrome://extensions` in Chrome (or any Chromium browser).
 3. Turn on **Developer mode** (top right).
 4. Click **Load unpacked** and select this folder.
-5. Pin Subly and click the icon to start.
+5. Pin Subscription Cost Tracker and click the icon to start.
 
 ## Privacy
 
-See [PRIVACY.md](PRIVACY.md). Short version: everything stays on your device; Subly makes no network requests and collects nothing.
+See [PRIVACY.md](PRIVACY.md). Short version: everything stays on your device; Subscription Cost Tracker makes no network requests and collects nothing.
 
 ## Support
 
-Subly is free and always will be. If it saved you from a forgotten charge and you'd like to say thanks:
+Subscription Cost Tracker is free and always will be. If it saved you from a forgotten charge and you'd like to say thanks:
 
 ☕ **[Buy me a coffee](https://buymeacoffee.com/jojobry)**
 

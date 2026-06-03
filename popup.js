@@ -1,4 +1,4 @@
-/* Subly — Subscription Tracker
+/* Subscription Cost Tracker
    100% local. All data lives in chrome.storage.local on this device. */
 
 const DEFAULT_SETTINGS = {
@@ -307,7 +307,7 @@ function exportData() {
   const blob = new Blob([JSON.stringify({ subs: state.subs, settings: state.settings, exportedAt: new Date().toISOString() }, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  a.href = url; a.download = "subly-backup.json"; a.click();
+  a.href = url; a.download = "subscriptions-backup.json"; a.click();
   URL.revokeObjectURL(url);
 }
 function importData(file) {

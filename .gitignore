@@ -3,7 +3,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
-subly-backup.json
+subscriptions-backup.json
 
 # Internal working docs — kept local, not published
 PUBLISHING.md

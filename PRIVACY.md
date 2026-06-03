@@ -1,23 +1,23 @@
-# Privacy Policy — Subly (Subscription Tracker)
+# Privacy Policy — Subscription Cost Tracker
 
 **Last updated: 2 June 2026**
 
-Subly is built privacy-first. The short version: **your data never leaves your device, and we never see it.**
+Subscription Cost Tracker is built privacy-first. The short version: **your data never leaves your device, and we never see it.**
 
-## What data Subly stores
+## What data Subscription Cost Tracker stores
 
-Subly lets you manually enter subscriptions (name, price, currency, billing cycle, renewal date, category, an optional website link, and optional notes) and a few preferences (default currency, theme, notification settings).
+Subscription Cost Tracker lets you manually enter subscriptions (name, price, currency, billing cycle, renewal date, category, an optional website link, and optional notes) and a few preferences (default currency, theme, notification settings).
 
 All of this is stored **locally on your own computer** using the browser's standard extension storage (`chrome.storage.local`).
 
-## What Subly does NOT do
+## What Subscription Cost Tracker does NOT do
 
 - **No accounts.** There is no sign-up and no login.
-- **No servers.** Subly has no backend. Your data is never transmitted anywhere.
+- **No servers.** Subscription Cost Tracker has no backend. Your data is never transmitted anywhere.
 - **No bank or financial-account connections.**
 - **No analytics, tracking, telemetry, or advertising.**
 - **No selling or sharing of data** — there is nothing collected to sell or share.
-- **No network requests.** Subly works fully offline. Exchange rates used for combining mixed-currency totals are bundled inside the extension, not fetched from the internet.
+- **No network requests.** Subscription Cost Tracker works fully offline. Exchange rates used for combining mixed-currency totals are bundled inside the extension, not fetched from the internet.
 
 ## Permissions and why they are used
 
@@ -29,11 +29,11 @@ All of this is stored **locally on your own computer** using the browser's stand
 
 - You can edit or delete any subscription at any time.
 - You can export all your data to a JSON file, and import it back, from **Settings**.
-- Uninstalling the extension removes all locally stored Subly data.
+- Uninstalling the extension removes all locally stored Subscription Cost Tracker data.
 
 ## Children
 
-Subly is a general-audience productivity tool and does not knowingly collect any personal information from anyone, including children.
+Subscription Cost Tracker is a general-audience productivity tool and does not knowingly collect any personal information from anyone, including children.
 
 ## Changes to this policy
 

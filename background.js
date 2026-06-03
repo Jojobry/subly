@@ -1,4 +1,4 @@
-/* Subly background service worker.
+/* Subscription Cost Tracker — background service worker.
    Schedules a daily local check and fires on-device notifications for
    upcoming renewals. No network, no servers — everything stays local. */
 
@@ -74,7 +74,7 @@ async function checkRenewals() {
       type: "basic",
       iconUrl: "icons/icon128.png",
       title: `${s.name} ${verb.toLowerCase()} ${when}`,
-      message: `${s.name} · ${s.currency} ${s.price}. Open Subly to manage it.`,
+      message: `${s.name} · ${s.currency} ${s.price}. Open the tracker to manage it.`,
       priority: 1,
     });
     notified[s.id] = s.nextDate;

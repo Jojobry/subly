@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Subly — Subscription Tracker",
-  "version": "1.0.0",
+  "name": "Subscription Cost Tracker",
+  "version": "1.0.1",
   "description": "Track every subscription privately. All data stays on your device. Free, no account, no bank links. Local renewal reminders.",
   "icons": {
     "16": "icons/icon16.png",
@@ -10,7 +10,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Subly — Subscription Tracker",
+    "default_title": "Subscription Cost Tracker",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
